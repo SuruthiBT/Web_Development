@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journey - Rider Journey</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+}
+
+/* NAVBAR */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:20px 70px;
+    background:rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    font-family: 'Bebas Neue';
+    color:#fff;
+}
+
+.logo span{
+    color:#ff7b00;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:35px;
+    font-size:15px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+    color:#ff7b00;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    height:90vh;
+    background:
+    linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.2)),
+    url('images/explore_1.jpeg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:120px 80px 60px;
+}
+
+.hero-content h1{
+    font-size:82px;
+    line-height:1;
+    font-family: 'Bebas Neue';
+    text-transform:uppercase;
+    margin-bottom:8px;
+    padding-right: 100px;
+}
+
+.hero-content span{
+    color:#d86901;
+}
+
+.hero-content p{
+    color:#d0d0d0;
+    font-size:20px;
+    max-width:600px;
+    line-height:1.8;
+}
+
+/* JOURNEY SECTION */
+
+.journey-section{
+    padding:90px 80px;
+}
+.journey-section h2{
+    font-size: x-larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-title{
+    font-size:55px;
+    font-family:'Oswald',sans-serif;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:#ff7b00;
+}
+
+.timeline{
+    position:relative;
+    margin-left:30px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:-30px;
+    top:0;
+    width:4px;
+    height:100%;
+    background:#ff7b00;
+}
+
+.journey-card{
+    background:#111;
+    border:1px solid #222;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:40px;
+    display:flex;
+    gap:30px;
+    position:relative;
+    transition:0.4s;
+}
+
+.journey-card:hover{
+    transform:translateY(-8px);
+    border-color:#ff7b00;
+}
+
+.journey-card::before{
+    content:'';
+    position:absolute;
+    left:-41px;
+    top:50px;
+    width:22px;
+    height:22px;
+    background:#ff7b00;
+    border-radius:50%;
+}
+
+.card-image{
+    flex:1;
+    min-width:350px;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-content{
+    flex:1;
+    padding:35px 30px;
+}
+
+.tag{
+    display:inline-block;
+    background:#ff7b00;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.card-content h2{
+    font-size:42px;
+    margin-bottom:18px;
+    font-family:'Oswald',sans-serif;
+}
+
+.card-content p{
+    color:#cfcfcf;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.info{
+    display:flex;
+    gap:25px;
+    color:#aaa;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#ff7b00;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.btn:hover{
+    background:#ff9500;
+}
+
+/* QUOTE SECTION */
+
+.quote{
+    margin:60px 80px 100px;
+    padding:60px;
+    background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('images/bike\ with\ s.png');
+    background-size:cover;
+    background-position:center;
+    border-radius:25px;
+    text-align:center;
+}
+
+.quote h2{
+    font-size:45px;
+    line-height:1.5;
+    font-family:'Oswald',sans-serif;
+}
+
+.quote span{
+    color:#ff7b00;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#000;
+    color:#888;
+    border-top:1px solid #111;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .journey-card{
+        flex-direction:column;
+    }
+
+    .card-image{
+        min-width:100%;
+        height:300px;
+    }
+
+    .hero h1{
+        font-size:65px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero,
+    .journey-section{
+        padding-left:30px;
+        padding-right:30px;
+    }
+
+    .quote{
+        margin:40px 30px 80px;
+        padding:40px 25px;
+    }
+
+    .hero-content h1{
+        font-size:55px;
+    }
+
+    .section-title{
+        font-size:42px;
+    }
+
+    .card-content h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+    <div class="logo">
+        RIDER <span>JOURNEY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="journeys.html" class="active">JOURNEY</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="gear.html">GEAR</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>MY <span>JOURNEY</span></h1>
+
+        <p>
+            Every ride has a story. Every road carries memories.<br>
+            From mountains to coastlines, these journeys shaped who I am.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- JOURNEY SECTION -->
+
+<section class="journey-section">
+
+    <h2 class="section-title">RIDE <span>DIARIES</span></h2>
+
+    <div class="timeline">
+
+        <!-- CARD 1 -->
+
+<div class="journey-card">
+
+        <div class="card-image">
+                <img src="Images/image10.jpg" alt="Chandapura, Bangalore">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2021 - SOUTH INDIA</div>
+
+                <h2>The Peaceful Gateway to Electronic City</h2>
+
+                <p>
+                    Where every roads holds a new story,
+					CHandapura rides with hustle and Heart.
+					From Sunrise streets to midnight vibes,
+					Bangalore's spirit begins here.
+                </p>
+
+                <div class="info">
+                    <span>📅 September 27, 2021</span>
+                    <span>📍 Karnataka</span>
+                    <span>🏍 400 KM</span>
+                </div>
+
+                <a href="#" class="btn">CHANDAPURA, BANGALORE</a>
+
+            </div>
+
+        </div>
+
+        <!--CARD 2-->
+        <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/image22.png" alt="Rock Beach,Pondy">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2022 - SOUTH INDIA</div>
+
+                <h2>Ambur Rides with Legacy</h2>
+
+                <p>
+                    Pride of TamilNadu: In the heart of Ambur, Flavors meet tradition,
+                    Where every street carries a timeless story.
+                    Proud soul of Tirupattur, Rich in culture and Pride.
+                    Tamilnadu's Warmth  lives here forever...
+                </p>
+
+                <div class="info">
+                    <span>📅 October 25, 2022</span>
+                    <span>📍 Ambur</span>
+                    <span>🏍 3 KM</span>
+                </div>
+
+                <a href="#" class="btn">AMBUR, TIRUPATTUR- TAMILNADU</a>
+
+            </div>
+
+        </div>
+
+        <!--CARD 3-->
+        <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/image8.jpg" alt="Vinnamangalam, Ambur">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2023 - SOUTH INDIA</div>
+
+                <h2>Pondy's Perfect Promenade</h2>
+
+                <p>
+                    Where French charm meets Indian shores, 
+                    Rock Beach sands as the ultimate coastal sanctuary.
+                    Le the rhythm of crashing waves against timeless boulders wash away your worries 
+                    on Puducheery's iconic Promenade.
+                </p>
+
+                <div class="info">
+                    <span>📅 January 29, 2023</span>
+                    <span>📍 Puducherry</span>
+                    <span>🏍 360 KM</span>
+                </div>
+
+                <a href="#" class="btn">ROCK BEACH, PUDUCHERRY</a>
+
+            </div>
+        </div>
+        <!-- CARD 4 -->
+
+            <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/bike with s.png" alt="Valparai Ride">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2024 - NORTH WEST</div>
+
+                <h2>The Green Heaven Land</h2>
+
+                <p>
+                    "The Spectacular 7th Heaven of the Western Ghats. 
+                    Traverse forty thrilling hairpin bends into a mist- Shrouded sanctuary of endlesss
+                    Green tea carpets, Roaring waterfalls and rare majestic wildlife.""
+                
+                </p>
+
+                <div class="info">
+                    <span>📅 September 17, 2024</span>
+                    <span>📍 Valparai, Coimbatore</span>
+                    <span>🏍 423 KM</span>
+                </div>
+
+                <a href="#" class="btn">VALPARAI 7th HEAVEN</a>
+
+            </div>
+
+        </div>
+    
+        <!-- CARD 5 -->
+
+        <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/kolukkumalai.jpeg" alt="Kolukkumalai Ride">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2025 - SOUTH EAST</div>
+
+                <h2>The world's Highest tea Paradise</h2>
+
+                <p>
+                    "Ascend into a breathtaking realm where
+                    The world's highest organic tea gardenskiss the sky.
+                    Awaken above an endless ocean of clouds,
+                    Bathe in the golden glory of an unforgettable sunrise
+                    and touch pure mountain magic."
+                </p>
+
+                <div class="info">
+                    <span>📅 April 15, 2025</span>
+                    <span>📍 Munnar, Kerala</span>
+                    <span>🏍 550 KM</span>
+                </div>
+
+                <a href="#" class="btn">KOLUKKUMALAI</a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="journey-card">
+
+			<div class="card-image">
+                <img src="Images/image19.jpg" alt="Barachukki Falls, Karanataka">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2025 - NORTH EAST</div>
+
+                <h2>Cascading Peace, Roaring Beauty</h2>
+
+                <p>
+                    WHere the mighty Kaveri splits into two spectacular streams,
+                    Leave behind the heavy traffic and the busy city street,
+                    Travel down to where the wild waters and the vally meet.                
+                </p>
+
+                <div class="info">
+                    <span>📅 September 6, 2025</span>
+                    <span>📍 Shivanasamudra, Karnataka</span>
+                    <span>🏍 250 KM</span>
+                </div>
+
+                <a href="#" class="btn">BARACHUKKI FALLS, KARNATAKA</a>
+
+            </div>
+
+        </div>
+                <!-- CARD 7 -->
+        <div class="journey-card">
+
+			<div class="card-image">
+                <img src="Images/Falls.jpeg" alt="Hebbe Falls, Chikkamagaluru,Karnataka">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2025 - NORTH EAST</div>
+
+                <h2>Nature's Hidden Thunder</h2>
+
+                <p>
+                    The Rugged road leads to the purest rush. 
+                    Ride beyond roads, Discover Hebbe Falls 
+                    where the mountains whisper and waterfalls roar.             
+                </p>
+
+                <div class="info">
+                    <span>📅 October 21, 2025</span>
+                    <span>📍 Chikkamagaluru, Karnataka</span>
+                    <span>🏍 150 KM</span>
+                </div>
+
+                <a href="#" class="btn">HEBBE FALLS, KARNATAKA</a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 8 -->
+
+        <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/Gokarna.jpeg" alt="Kudle Beach, Gokarna">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2025 - SOUTH INDIA</div>
+
+                <h2>Coastal Ride to Gokarna</h2>
+
+                <p>
+                    Long coastal highways, sea breeze and peaceful sunsets.
+                    This ride was all about freedom, slow roads and soulful moments.
+                </p>
+
+                <div class="info">
+                    <span>📅 November 7, 2025</span>
+                    <span>📍 Karnataka</span>
+                    <span>🏍 700 KM</span>
+                </div>
+
+                <a href="#" class="btn">KUDLE BEACH</a>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 8 -->
+
+        <div class="journey-card">
+
+            <div class="card-image">
+                <img src="Images/Glass bridge, wayanad.jpeg" alt="Glass bridge,Wayand">
+            </div>
+
+            <div class="card-content">
+
+                <div class="tag">2026 - SOUTH EAST</div>
+
+                <h2>A Clear  View Of Nature's Heart</h2>
+
+                <p>
+                    "Walking into the heart of Wayanad feels like entering a dream". 
+                    Heartbeats racing over depths unknown, A Sky-High path where the wild is shown,
+                    Wayanad's thrill on a bridge of its own.
+                
+                </p>
+
+                <div class="info">
+                    <span>📅 March 22, 2026</span>
+                    <span>📍 Wayanad, Kerala</span>
+                    <span>🏍 423 KM</span>
+                </div>
+
+                <a href="#" class="btn">900 KANDI,GLASS BRIDGE, WAYANAD</a>
+
+            </div>
+
+        </div>
+        
+
+    </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+    <h2>
+        “Life begins where the road ends.<br>
+        Ride more. <span>Explore deeper.</span>”
+    </h2>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Rider Journey |Born to Ride. Explore. Repeat | A.Santhosh
+</footer>
+
+</body>
+</html>

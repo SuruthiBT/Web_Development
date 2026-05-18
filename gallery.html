@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rider Journey Gallery</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050505;
+    font-family:'Poppins',sans-serif;
+    color:white;
+    padding:40px;
+}
+h1{
+            margin-bottom:30px;
+        }
+
+
+/* NAVBAR */
+
+header{
+    width:100%;
+    padding:20px 70px;
+    background:#a7a6a6;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-radius: 8px;
+}
+
+.logo{
+    font-size:38px;
+    font-family:Bebas Neue;
+    font-weight:700;
+}
+
+.logo span{
+    color:#ff7b00;
+    font-family:Bebas Neue;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:35px;
+    font-size:12px;
+    transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+    color:#ff7b00;
+}
+
+/* GALLERY SECTION */
+
+.gallery-section{
+    padding:50px 70px 100px;
+}
+
+.gallery-title{
+    font-size:75px;
+    font-family:'Oswald',sans-serif;
+    margin-bottom:10px;
+    text-transform:uppercase;
+}
+
+.gallery-subtitle{
+    color:#bdbdbd;
+    margin-bottom:45px;
+    font-size:18px;
+}
+
+/* FILTER BUTTONS */
+
+.filter-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.filter-buttons button{
+    padding:14px 25px;
+    border:none;
+    border-radius:8px;
+    background:transparent;
+    color:white;
+    border:1px solid #222;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover{
+    background:#ff7b00;
+    border-color:#ff7b00;
+}
+
+/* IMAGE GRID */
+
+.gallery-grid{
+    display:grid;
+    /* 3 columns*/
+    /* grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); */ 
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:0.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+/* IMAGE HEIGHTS */
+
+.large{
+    height:270px;
+}
+
+.medium{
+    height:240px;
+}
+
+.small{
+    height:220px;
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    opacity:0;
+    transition:0.4s;
+
+    display:flex;
+    align-items:flex-end;
+    padding:20px;
+}
+
+.gallery-item:hover .overlay{
+    opacity:1;
+}
+
+.overlay h3{
+    font-size:24px;
+    font-family:'Oswald',sans-serif;
+}
+
+/* LOAD MORE */
+
+.load-more{
+    text-align:center;
+    margin-top:50px;
+}
+
+.load-more button{
+    padding:16px 45px;
+    background:transparent;
+    border:1px solid #ff7b00;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:16px;
+}
+
+.load-more button:hover{
+    background:#ff7b00;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    header{
+        padding:20px 30px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .gallery-section{
+        padding:40px 25px 80px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-title{
+        font-size:55px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+    <div class="logo">
+        RIDER <span>JOURNEY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="journeys.html">JOURNEY</a>
+        <a href="gallery.html" class="active">GALLERY</a>
+        <a href="gear.html">GEAR</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+</header>
+
+<!-- GALLERY -->
+
+<section class="gallery-section">
+
+    <h1 class="gallery-title">Gallery</h1>
+
+    <p class="gallery-subtitle">
+        Moments captured on the road.
+    </p>
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filter-buttons">
+
+        <button class="active">ALL</button>
+        <button>MOUNTAINS</button>
+        <button>ROADS</button>
+        <button>FRIENDS</button>
+        <button>BIKE</button>
+        <button>CAMPS</button>
+
+    </div>
+
+    <!-- IMAGE GRID -->
+
+    <div class="gallery-grid">
+
+        <!-- IMAGE 1 -->
+
+        <div class="gallery-item large" data-category="">
+
+            <img src="Images/s33.jpg">
+
+            <div class="overlay">
+                <h3>St. Mark's Lutheran Church | Ambur</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 2 -->
+
+        <div class="gallery-item large" data-category="All">
+
+            <img src="Images/s32.jpeg">
+
+            <div class="overlay">
+                <h3>Wayanad | Kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 3 -->
+
+        <div class="gallery-item large" data-category="All">
+
+            <img src="Images/s31.jpeg">
+
+            <div class="overlay">
+                <h3>Wayanad | Kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 4 -->
+
+        <div class="gallery-item large" data-category="roads">
+
+            <img src="Images/s30.jpeg">
+
+            <div class="overlay">
+                <h3>Emerald Lake | Kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 5 -->
+
+        <div class="gallery-item medium" data-category="roads">
+
+            <img src="Images/s29.jpeg">
+
+            <div class="overlay">
+                <h3>Bandipur Tiger Reserve Forest | Karnataka</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 6 -->
+
+        <div class="gallery-item medium" data-category="roads">
+
+            <img src="Images/s28.jpeg">
+
+            <div class="overlay">
+                <h3>Wildlife Sanctuary, Wayanad | kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 7 -->
+
+        <div class="gallery-item medium" data-category="Mountains">
+
+            <img src="Images/s27.jpeg">
+
+            <div class="overlay">
+                <h3>Hebbe Falls | Karnataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 8 -->
+
+        <div class="gallery-item large" data-category="All">
+
+            <img src="Images/s26.jpeg">
+
+            <div class="overlay">
+                <h3>Kudle Beach | Gokarna</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 9 -->
+
+        <div class="gallery-item large" data-category="All">
+
+            <img src="Images/s25.jpeg">
+
+            <div class="overlay">
+                <h3>Kandi Glass Bridge, Wayanad| Kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 10 -->
+         <div class="gallery-item large" data-category="Mountains">
+
+            <img src=" Images/s24.jpeg">
+
+            <div class="overlay">
+                <h3>Chikkamagaluru Hills | Karnataka</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 11 -->
+        <div class="gallery-item large" data-category="roads">
+
+            <img src="Images/s23.png">
+
+            <div class="overlay">
+                <h3>Valparai | Tamil Nadu</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 12 -->
+
+        <div class="gallery-item large" data-category="All">
+
+            <img src="Images/s22.jpg">
+
+            <div class="overlay">
+                <h3>Panaromic View , Munnar | Kerala</h3>
+            </div>
+
+        </div>
+        
+        <!-- IMAGE 13 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s21.jpeg">
+
+            <div class="overlay">
+                <h3>Kudle Beach | Gokarna </h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 14  -->
+
+        <div class="gallery-item medium" data-category="roads">
+
+            <img src="Images/s20.jpeg">
+
+            <div class="overlay">
+                <h3>Valparai | Tamil Nadu</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 15 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s19.jpeg">
+
+            <div class="overlay">
+                <h3>Kolukkumalai Munnar | Kerala </h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 16 -->
+
+        <div class="gallery-item medium" data-category="roads">
+
+            <img src="Images/s18.jpg">
+
+            <div class="overlay">
+                <h3>Kolukkumalai Munnar | Kerala</h3>
+            </div>
+
+        </div>
+
+        <!-- IMAGE 17 -->
+
+        <div class="gallery-item medium" data-category="roads">
+
+            <img src="Images/s17.png">
+
+            <div class="overlay">
+                <h3>Valparai | Tamil Nadu</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 18 -->
+
+        <div class="gallery-item medium" data-category="Mountains">
+
+            <img src="Images/s16.jpeg">
+
+            <div class="overlay">
+                <h3>Kolukkumalai Munnar | Kerala</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 19 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s15.jpg">
+
+            <div class="overlay">
+                <h3>Railway Station | Ambur</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 20 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s14.jpeg">
+
+            <div class="overlay">
+                <h3>Bangalore | Karnataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 21 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s13.jpg">
+
+            <div class="overlay">
+                <h3>Bangalore | Karnataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 22  -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s12.jpg">
+
+            <div class="overlay">
+                <h3>Barachukki Falls | Karanataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 23 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s11.jpg">
+
+            <div class="overlay">
+                <h3>Bangalore | Karnataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 24 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s10.jpg">
+
+            <div class="overlay">
+                <h3>Forum Mall | Mysore</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 25 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s9.jpg">
+
+            <div class="overlay">
+                <h3>St.Pilomena's Cathedral Church | Mysore</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 26 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s8.jpg">
+
+            <div class="overlay">
+                <h3>Barachukki Falls | Karnataka</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 27 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s7.jpg">
+
+            <div class="overlay">
+                <h3>Rock Beach | Puducherry</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 28 -->
+
+        <div class="gallery-item medium" data-category="Mountains">
+
+            <img src="Images/s6.jpeg">
+
+            <div class="overlay">
+                <h3>Yelagiri High Spot | Tirupattur</h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 29 -->
+
+        <div class="gallery-item medium" data-category="Mountains">
+
+            <img src="Images/s5.jpg">
+
+            <div class="overlay">
+                <h3>Yelagiri High Spot | Tirupattur </h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 30 -->
+
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s4.jpg">
+
+            <div class="overlay">
+                <h3>St.Marry's Basilica, Sivajinagar | Bengaluru</h3>
+            </div>
+
+        </div>
+
+            <!-- IMAGE 31 -->
+    
+            <div class="gallery-item medium" data-category="roads">
+    
+                <img src="Images/s3.jpg">
+    
+                <div class="overlay">
+                    <h3>Chandapura Layout, Bengaluru | Karnataka</h3>
+                </div>
+            </div>
+                <!-- IMAGE 32 -->  
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s2.jpg">
+
+            <div class="overlay">
+                <h3>Chandapura Layout, Bengaluru | Karnataka</h3>
+            </div>
+        </div>
+        <!-- IMAGE 33 -->
+        <div class="gallery-item medium" data-category="All">
+
+            <img src="Images/s1.png">
+
+            <div class="overlay">
+                <h3>Vinnamangalam,Ambur | Tirupattur </h3>
+            </div>
+
+        </div>
+        <!-- IMAGE 34 -->
+        <!-------------------------------  -->
+        <div class="gallery-item medium" data-category="camps, friends">
+
+            <img src="Images/f1.jpg">
+
+            <div class="overlay">
+                <h3>Mudhumalai Elephant Camp | TamilNadu</h3>
+            </div>
+        </div>
+
+        <!-- IMAGE 35 -->
+        <div class="gallery-item medium" data-category="camps">
+
+            <img src="Images/f2.jpg">
+
+            <div class="overlay">
+                <h3>Mudhumalai Elephant Camp | TamilNadu</h3>
+            </div>
+
+        </div>
+        <div class="gallery-item medium" data-category="camps">
+
+            <img src="Images/f3.jpg">
+
+            <div class="overlay">
+                <h3>Nilgiris | TamilNadu</h3>
+            </div>
+
+        </div>
+        <div class="gallery-item medium" data-category="friends">
+
+            <img src="Images/f4.jpg">
+
+            <div class="overlay">
+                <h3>Mullayanagiri Peak | Karnataka</h3>
+            </div>
+
+        </div>
+        <div class="gallery-item medium" data-category="friends">
+
+            <img src="Images/f5.jpg">
+
+            <div class="overlay">
+                <h3>Western Ghat Range of Karnataka</h3>
+            </div>
+
+        </div>
+
+        <div class="gallery-item medium" data-category="friends">
+
+            <img src="Images/f6.jpg">
+
+            <div class="overlay">
+                <h3>Bangalore</h3>
+            </div>
+
+        </div>
+        <div class="gallery-item medium" data-category="bike">
+
+            <img src="Images/b1.png">
+
+            <div class="overlay">
+                <h3>Yelagiri High Spot | Tirupattur </h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LOAD MORE -->
+
+    <div class="load-more">
+
+        <button>
+            LOAD MORE ↻
+        </button>
+
+    </div>
+
+</section>
+
+
+    <script>
+
+// FILTER BUTTONS
+
+const filterButtons = document.querySelectorAll(".filter-buttons button");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+// CATEGORY FILTER
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        // REMOVE ACTIVE CLASS
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        // ADD ACTIVE CLASS
+
+        button.classList.add("active");
+
+        // GET BUTTON TEXT
+
+        const filterValue = button.innerText.toLowerCase();
+
+        // SHOW / HIDE IMAGES
+
+        galleryItems.forEach(item => {
+
+            const category = item.getAttribute("data-category");
+
+            if(filterValue === "all"){
+
+                item.style.display = "block";
+
+            }
+
+            else if(category === filterValue){
+
+                item.style.display = "block";
+
+            }
+
+            else{
+
+                item.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+// LOAD MORE BUTTON
+
+const loadMoreBtn = document.querySelector(".load-more button");
+
+let currentItems = 12;
+
+const allItems = Array.from(galleryItems);
+
+// HIDE EXTRA IMAGES FIRST
+
+allItems.slice(currentItems).forEach(item => {
+    item.style.display = "none";
+});
+
+// LOAD MORE CLICK
+
+loadMoreBtn.addEventListener("click", () => {
+
+    const hiddenItems = allItems.filter(item => {
+        return item.style.display === "none";
+    });
+
+    hiddenItems.slice(0,4).forEach(item => {
+        item.style.display = "block";
+    });
+
+    // HIDE BUTTON IF ALL IMAGES SHOWN
+
+    if(hiddenItems.length <= 4){
+        loadMoreBtn.style.display = "none";
+    }
+
+});
+
+// RESPONSIVE NAVBAR OPTIONAL
+
+window.addEventListener("resize", () => {
+
+    if(window.innerWidth < 768){
+
+        console.log("Mobile View");
+
+    }
+
+});
+
+</script>
+<!-- QUOTE -->
+
+<section class="quote">
+
+    <h2>
+        “Some Rides aren't about thedestination...<br>
+        They're about Finding Yourself again.
+        Ride more. <span>Explore deeper.</span>”<br><br>
+    </h2>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Rider Journey |Born to Ride. Explore. Repeat | A.Santhosh
+</footer>
+</body>
+</html>

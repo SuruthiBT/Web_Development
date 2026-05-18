@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Journey | A Single Man Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for that premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">RIDER <span>JOURNEY</span></div>
+        <ul class="nav-links">
+            <a href="index.html" class="active">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="journeys.html">JOURNEY</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="gear.html">GEAR</a>
+            <a href="contact.html">CONTACT</a>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">A SINGLE MAN JOURNEY</p>
+            <h1>NOT ALL THOSE <br> <span class="highlight">WHO WANDER</span> <br> ARE LOST.</h1>
+            <p class="description">Just a man, his bike and the open road. Exploring new places, meeting new people and collecting stories to tell.</p>
+            <a href="#" class="btn">EXPLORE MY JOURNEY &rarr;</a>
+        </div>
+    </section>
+
+    <section class="latest-journeys">
+        <div class="section-header">
+            <h2>LATEST JOURNEYS</h2>
+            <!--<a href="#" class="view-all">VIEW ALL JOURNEYS &rarr;</a> -->
+            <a href="journeys.html" class="view-all" onclick="navigate(event,this)">VIEW ALL JOURNEY-></a>
+            <div class="transition"></div>
+        </div>
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="card" style="background-image: url('Images/Kalhatty\,Ooty.jpeg');">
+                <div class="card-overlay">
+                    <span class="tag">OOTY</span>
+                    <h3>Conquer the Curves at Kalhatty</h3>
+                    <p>March 21, 2026 | Nilgiris dist, Ooty</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card" style="background-image: url('Images/Thalaikunda\ Pond\,Ooty.jpeg');">
+                <div class="card-overlay">
+                    <span class="tag">OOTY</span>
+                    <h3>Emerald Lake</h3>
+                    <p>March 22, 2026 | Thalaikunda Pond, Ooty</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card" style="background-image: url('Images/Wayanad\,wildlife\ sanctuary.jpeg');">
+                <div class="card-overlay">
+                    <span class="tag">KERALA</span>
+                    <h3>The Gateway of Jungle</h3>
+                    <p>March 22, 2026 | Wildlife Sanctuary, Wayanad</p>
+                </div>
+            </div>
+        </div>
+        <!--Upcoming Journey card  -->
+        <div class="section-header">
+            <!--<a href="#" class="view-all">VIEW ALL JOURNEYS &rarr;</a> -->
+            <div class="transition"></div>
+        </div>
+        <div class="card-grid">
+            <!-- Card 4 -->
+            <div class="card" style="background-image: url('Images/Munnar.jpg');">
+                <div class="card-overlay">
+                    <span class="tag">KERALA</span>
+                    <h3>Panoramic Beauty</h3>
+                    <p>March 22, 2026 | Munnar, Kerala</p>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card" style="background-image: url('Images/wayanad1.jpeg');">
+                <div class="card-overlay">
+                    <span class="tag">KERALA</span>
+                    <h3>The Highway to Heaven</h3>
+                    <p>March 22, 2026 | Idukki Gap Road, Munnar</p> 
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card" style="background-image: url('Images/Wayanad.jpeg');">
+                <div class="card-overlay">
+                    <span class="tag">WAYANAD</span>
+                    <h3>The Place of Natural Beauty</h3> 
+                    <p>March 22, 2026 | Wayanad, Kerala</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Journey-->
+         <section class="upcoming-journeys">
+            <div class="section-header">
+            <h2>UPCOMING  JOURNEYS</h2>
+            <div class="transition"></div>
+        </div>
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="card" style="background-image: url('Images/bike-handle.jpg');">
+                <div class="card-overlay">
+                    <span class="tag">LADAKH</span>
+                    <h3>Dreams of Exploring</h3>
+                    <p>Soon | Leh, Ladakh</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card" style="background-image: url('Images/ladak-view.jpg');">
+                <div class="card-overlay">
+                    <span class="tag">LADAKH</span>
+                    <h3>Dreams of Ladakh</h3>
+                    <p>Soon | Leh, Ladakh</p>
+                </div>
+            </div>
+        </div>
+         </section>
+
+        <div class="section-header">
+            <hr>
+            <div class="transition"></div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-section stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-mountain"></i>
+                <span class="stat-number">25+</span>
+                <span class="stat-label">Destinations</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-road"></i>
+                <span class="stat-number">18,000+</span>
+                <span class="stat-label">Kms Ridden</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-camera"></i>
+                <span class="stat-number">2500+</span>
+                <span class="stat-label">Photos</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-fire"></i>
+                <span class="stat-number">60+</span>
+                <span class="stat-label">Days on Road</span>
+            </div>
+        </div>
+
+        <div class="footer-section quote-box">
+            <p class="quote-text">
+                <i class="fas fa-quote-left"></i> 
+                Life is not meant to be lived in one place. Pack your bags, fuel your soul and ride.
+            </p>
+            <p class="quote-author">— Rider</p>
+        </div>
+
+        <div class="footer-section social-box">
+            <h3>FOLLOW THE JOURNEY</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/lke_a_mirror?igsh=MWV2cTU0eDJkc2c0MA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+
+                <a href="https://www.facebook.com/johnsanthosh2186" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/9994549484" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="copyright">© 2024 Rider Journey. All Rights Reserved.</div>
+        <div class="footer-logo"><i class="fas fa-motorcycle"></i></div>
+        <div class="footer-links">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">TERMS & CONDITIONS</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+Home page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rider Journey</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    background:#050505;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+/* NAVBAR */
+header{
+    width:100%;
+    padding:20px 70px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(8px);
+}
+.logo{
+    font-size:38px;
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+}
+.logo span{
+    color:#ff7b00;
+}
+.logo p{
+    font-size:13px;
+    color:#ccc;
+    margin-top:-5px;
+}
+/* NAVIGATION */
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:35px;
+    transition:0.3s;
+    font-size:15px;
+    font-weight:500;
+}
+nav a:hover,
+nav a.active{
+    color:#ff7b00;
+}
+/* HERO SECTION */
+.hero{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:120px 70px 80px;
+    overflow:hidden;
+}
+/* VIDEO */
+.hero video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+/* OVERLAY */
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to left,
+    rgba(0,0,0,0.88),
+    rgba(0,0,0,0.30));
+    z-index:-1;
+}
+/* HERO CONTENT */
+.hero-content{
+    max-width:700px;
+    text-align:right;
+}
+.hero-content h5{
+    color:#ff7b00;
+    font-size:18px;
+    margin-bottom:18px;
+    letter-spacing:3px;
+}
+.hero-content h1{
+    font-size:100px;
+    line-height:1;
+    text-transform:uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom:25px;
+}
+.hero-content h1 span{
+    color:#ff7b00;
+}
+.hero-content p{
+    color:#d0d0d0;
+    line-height:1.9;
+    font-size:18px;
+    max-width:600px;
+    margin-left:auto;
+    margin-bottom:40px;
+}
+/* BUTTON */
+.hero-btn{
+    display:inline-block;
+    padding:17px 38px;
+    background:#ff7b00;
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    border-radius:8px;
+    transition:0.3s;
+}
+.hero-btn:hover{
+    background:#ff9500;
+    transform:translateY(-5px);
+}
+/* JOURNEY SECTION */
+.journey-section{
+    padding:90px 70px;
+}
+.section-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+.section-title{
+    font-size:55px;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+}
+.view-btn{
+    text-decoration:none;
+    color:#ff7b00;
+    font-size:16px;
+}
+/* GRID */
+.journey-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+/* CARD */
+.journey-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    height:340px;
+}
+.journey-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+.journey-card:hover img{
+    transform:scale(1.08);
+}
+.card-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+    rgba(0,0,0,0.92),
+    transparent);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:25px;
+}
+.card-overlay h3{
+    font-size:38px;
+    font-family:'Oswald',sans-serif;
+    margin-bottom:10px;
+}
+.card-overlay p{
+    color:#d0d0d0;
+    font-size:15px;
+}
+/* STATS */
+.stats{
+    padding:0 70px 90px;
+}
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+.stat-box{
+    background:#111;
+    border:1px solid #1b1b1b;
+    padding:40px 25px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.4s;
+}
+.stat-box:hover{
+    transform:translateY(-8px);
+    border-color:#ff7b00;
+}
+.stat-box h2{
+    font-size:55px;
+    color:#ff7b00;
+    margin-bottom:10px;
+    font-family:'Oswald',sans-serif;
+}
+.stat-box p{
+    color:#d0d0d0;
+}
+/* QUOTE */
+.quote-section{
+    margin:0 70px 80px;
+    background:
+    linear-gradient(to right,
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.35)),
+    url('https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    padding:70px;
+    border-radius:12px;
+}
+.quote-section h2{
+    font-size:55px;
+    line-height:1.6;
+    font-family:'Oswald',sans-serif;
+    max-width:850px;
+}
+.quote-section span{
+    color:#ff7b00;
+}
+/* FOOTER */
+footer{
+    border-top:1px solid #111;
+    padding:30px 70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+footer p{
+    color:#777;
+}
+.footer-links a{
+    text-decoration:none;
+    color:#777;
+    margin-left:25px;
+    transition:0.3s;
+}
+.footer-links a:hover{
+    color:#ff7b00;
+}
+/* RESPONSIVE */
+@media(max-width:1100px){
+    .journey-grid{
+        grid-template-columns:1fr;
+    }
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+@media(max-width:768px){
+    header{
+        padding:20px 25px;
+    }
+    nav{
+        display:none;
+    }
+    .hero{
+        justify-content:center;
+        padding:140px 25px 80px;
+    }
+    .hero-content{
+        text-align:center;
+    }
+    .hero-content h1{
+        font-size:60px;
+    }
+    .hero-content p{
+        margin:auto auto 35px;
+        font-size:16px;
+    }
+    .journey-section,
+    .stats{
+        padding-left:25px;
+        padding-right:25px;
+    }
+    .quote-section{
+        margin:0 25px 60px;
+        padding:40px 25px;
+    }
+    .quote-section h2{
+        font-size:36px;
+    }
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+    .section-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+    footer{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+        padding:25px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<header>
+    <div class="logo">
+        RIDER <span>JOURNEY</span>
+        <p>Born to Ride. Explore. Repeat | A.Santhosh</p>
+    </div>
+    <nav>
+        <a href="#" class="active">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">JOURNEY</a>
+        <a href="#">GALLERY</a>
+        <a href="#">GEAR</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</header>
+<!-- HERO SECTION -->
+<section class="hero">
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline>
+        <source src="mp4-1.mp4" type="video/mp4">
+    </video>
+    <!-- CONTENT -->
+    <div class="hero-content">
+        <h5>A SINGLE MAN JOURNEY</h5>
+        <h1>
+            RIDE INTO
+            <span>THE CLOUDS</span>
+        </h1>
+        <p>
+            Through the misty mountain roads of Munnar,
+            every ride becomes a story of freedom,
+            adventure and endless exploration.
+        </p>
+        <a href="#" class="hero-btn">
+            EXPLORE MY JOURNEY →
+        </a>
+    </div>
+</section>
+<!-- JOURNEY SECTION -->
+<section class="journey-section">
+    <div class="section-top">
+        <h2 class="section-title">
+            Latest Journeys
+        </h2>
+        <a href="#" class="view-btn">
+            VIEW ALL JOURNEYS →
+        </a>
+    </div>
+    <div class="journey-grid">
+        <div class="journey-card">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+            <div class="card-overlay">
+                <h3>Ladakh Ride</h3>
+                <p>Leh • Mountain Adventure • 2026</p>
+            </div>
+        </div>
+        <div class="journey-card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+            <div class="card-overlay">
+                <h3>Meghalaya</h3>
+                <p>Monsoon Roads • Nature Escape</p>
+            </div>
+        </div>
+        <div class="journey-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+            <div class="card-overlay">
+                <h3>Coastal Ride</h3>
+                <p>Gokarna • Beach Highway Journey</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- STATS -->
+<section class="stats">
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h2>25+</h2>
+            <p>Destinations</p>
+        </div>
+        <div class="stat-box">
+            <h2>18K+</h2>
+            <p>Kilometers Ridden</p>
+        </div>
+        <div class="stat-box">
+            <h2>2500+</h2>
+            <p>Photos Captured</p>
+        </div>
+        <div class="stat-box">
+            <h2>60+</h2>
+            <p>Days On Road</p>
+        </div>
+    </div>
+</section>
+<!-- QUOTE -->
+<section class="quote-section">
+    <h2>
+        “Life is not meant to be lived in one place.
+        Pack your bags, fuel your soul and
+        <span>ride beyond limits.</span>”
+    </h2>
+</section>
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 Rider Journey. All Rights Reserved.
+    </p>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+    </div>
+</footer>
+</body>
+</html>
